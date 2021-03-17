@@ -1,5 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { FoodList } from "./foods/FoodList"
+import { FoodProvider } from "./foods/FoodProvider"
 
 
 export const ApplicationViews = () => {
@@ -11,9 +13,11 @@ export const ApplicationViews = () => {
     </Route>
 
     {/* http://localhost:8088/foods */}
-    <Route path="/foods">
-
-    </Route>
+    <FoodProvider>
+        <Route path="/foods">
+            <FoodList />
+        </Route>
+    </FoodProvider>
 
         {/* http://localhost:8088/badFoods */}
     {/* <Route path="/badFoods">
