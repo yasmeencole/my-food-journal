@@ -3,6 +3,7 @@ import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
 import { userStorageKey } from "./components/auth/authSettings"
 import { ApplicationViews } from "./components/ApplicationViews"
+import { NavBar } from "./components/nav/NavBar"
 
 
 export const App = () => (
@@ -12,8 +13,8 @@ export const App = () => (
       if (sessionStorage.getItem(userStorageKey)) {
         return (
           <>
-        //Components that are rendered when the user is authenticated go inside this React fragment
-          {/* <NavBar /> */}
+        {/* Components that are rendered when the user is authenticated go inside this React fragment */}
+          <NavBar />
           <ApplicationViews />
       </>
     )
