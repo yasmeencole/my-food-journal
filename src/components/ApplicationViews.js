@@ -11,27 +11,22 @@ export const ApplicationViews = () => {
     </Route>
 
     {/* http://localhost:8088/foods */}
-    {/* <Route path="/">
+    <Route path="/foods">
 
-    </Route> */}
+    </Route>
 
-        {/* http://localhost:8088/foods */}
-    {/* <Route path="/">
-
-    </Route> */}
-
-        {/* http://localhost:8088/badfoods */}
-    {/* <Route path="/">
+        {/* http://localhost:8088/badFoods */}
+    {/* <Route path="/badFoods">
 
     </Route> */}
 
             {/* http://localhost:8088/reviews */}
-    {/* <Route path="/">
+    {/* <Route path="/reviews">
 
     </Route> */}
 
             {/* http://localhost:8088/poops */}
-    {/* <Route path="/">
+    {/* <Route path="/poops">
 
     </Route> */}
     
