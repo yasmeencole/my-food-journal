@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react"
-// import { Food } from "./Food"
+import { Food } from "./Food"
 // import "./Food.css"
 import { FoodContext } from "./FoodProvider"
 import { useHistory } from "react-router-dom";
