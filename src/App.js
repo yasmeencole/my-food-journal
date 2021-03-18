@@ -1,4 +1,5 @@
 import { Route, Redirect } from "react-router-dom"
+import React from "react"
 import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
 import { userStorageKey } from "./components/auth/authSettings"
