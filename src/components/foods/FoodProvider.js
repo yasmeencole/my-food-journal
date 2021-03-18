@@ -28,6 +28,7 @@ export const FoodProvider = (props) => {
     const getFoods = () => {
     return fetch("http://localhost:8088/foods")
         .then(response => response.json())
+        .then(data => data.sort(timestampDate))
         .then(foodsData => setFoods(foodsData))
 }
 

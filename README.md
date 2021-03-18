@@ -1,9 +1,7 @@
 # Introduction
-Nashville Software School Cohort 46 Capstone
+Nashville Software School Cohort 46 Capstone - My Food Journal
 
-My Food Journal
-
-## The purpose of My Food Journal
+## The Purpose of My Food Journal
 The main purpose of My Food Journal application is to help users with gastrointestinal issues document foods that they have eaten for each day.
 
 This application will allow logged in users to: document their daily meals, leave a rating on their meals and notate how their meals physically made them feel after eating it. 

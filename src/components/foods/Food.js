@@ -7,7 +7,7 @@ import "./Food.css"
 export const Food = ({food}) => {
     return (
     <Card className="food" style={{ width: '18rem' }}>
-    <Card.Img variant="top" src={food.image} />
+    <Card.Img variant="top" src={food.url} />
     <Card.Body>
         <Card.Title>{food.name}</Card.Title>
         {/* <Card.Text>{food.description}</Card.Text> */}

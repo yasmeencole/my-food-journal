@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from "react-router-dom"
-import "./Food"
-
 
 
 export const FoodDetail = () => {
@@ -32,7 +30,7 @@ export const FoodDetail = () => {
     return (
         <section className="food">
         <h3 className="food__name">{food.name}</h3>
-        {/* <div className="food__url" href={ food.url } target="_blank">{food.url}</div> */}
+        {/* <div className="food__url" src={food.url}>{food.url}</div> */}
 
         <div className="food__description">About this meal: {food.description}</div>
 
