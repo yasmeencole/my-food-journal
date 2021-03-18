@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from 'react-router-dom';
-import { userStorageKey } from "../auth/authSettings"
+// import { userStorageKey } from "../auth/authSettings"
+import { MealContext } from "../meals/MealProvider"
+
 
 const structureOfDate = {
     hour: '2-digit',
@@ -15,21 +17,16 @@ const structureOfDate = {
 export const FoodForm = () => {
     const { addFood, getFoodById, updateFood } = useContext(FoodContext)
     const { getFoods } = useContext(FoodContext)
-
-    /*
-    With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
-
-    Define the intial state of the form inputs with useState()
-    */
+    const { meals, getMeals } = useContext(MealContext)
 
     const [food, setFoods] = useState({
         id: "",
-        userId: 0,
-        userId: parseInt(sessionStorage.getItem(userStorageKey)),
+        userId: "",
         name: "",
-        image: "",
+        url: "",
         description: "",
-        mealType: "",
+        mealTypeId: 0,
+        isGood: true,
         timestamp: ""
     });
 
@@ -45,9 +42,6 @@ export const FoodForm = () => {
         getFoods()
     }, [])
 
-    //when a field changes, update state. The return will re-render and display based on the values in state
-        // NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
-    //Controlled component
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
@@ -65,7 +59,7 @@ export const FoodForm = () => {
 
     const handleClickSaveFood = () => {
 
-        setIsLoading(true)
+        setIsLoading(true);
 
         if (foodId){
             //PUT - update
@@ -73,9 +67,10 @@ export const FoodForm = () => {
                 id: food.id,
                 userId: food.userId,
                 name: food.name,
-                image: food.image,
+                url: food.url,
                 description: food.description,
-                mealType: food.mealType,
+                mealTypeId: parseInt(food.mealTypeId),
+                isGood: food.isGood,
                 timestamp: food.timestamp
             })
 
@@ -87,20 +82,20 @@ export const FoodForm = () => {
                 id: food.id,
                 userId: food.userId,
                 name: food.name,
-                image: food.image,
+                url: food.url,
                 description: food.description,
-                mealType: food.mealType,
+                mealTypeId: food.mealTypeId,
+                isGood: food.isGood,
                 timestamp: food.timestamp
             })
 
             .then(() => history.push("/foods"))
         }
-        }
+    }
 
         // Get foods. If foodId is in the URL, getFoodById
     useEffect(() => {
-        getFoods().then(() => {
-
+        getFoods().then(getMeals).then(() => {
             // if there is data
         if (foodId) {
             getFoodById(foodId)
@@ -131,9 +126,22 @@ export const FoodForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="food__image">
-                    <label htmlFor="image">Image:</label>
-                    <input type="url" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="https://example.com" pattern="https://.*" value={food.image}/>
+                <div className="form-group">
+                <label htmlFor="meal">Type of Meal: </label>
+                <select value={food.mealTypeId} id="mealTypeId" className="form-control" onChange={handleControlledInputChange}>
+                    <option value="0">Select a meal type</option>
+                    {meals.map(meal => (
+                    <option key={meal.id} value={meal.id}>
+                        {meal.name}
+                    </option>
+                    ))}
+                </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="food__url">
+                    <label htmlFor="url">Link:</label>
+                    <input type="url" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="https://example.com" pattern="https://.*" value={food.url}/>
                 </div>
             </fieldset>
             <fieldset>
