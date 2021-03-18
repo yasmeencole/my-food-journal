@@ -1,10 +1,10 @@
 .foods {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .food {
-    flex-basis: 28%;
+    flex-basis: 40%;
     margin: 1em;
 }
