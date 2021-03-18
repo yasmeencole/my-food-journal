@@ -1,0 +1,10 @@
+.foods {
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.food {
+    flex-basis: 40%;
+    margin: 1em;
+}
