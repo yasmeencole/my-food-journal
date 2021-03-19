@@ -5,6 +5,7 @@ import { FoodProvider } from "./foods/FoodProvider"
 import { FoodDetail } from "./foods/FoodDetail"
 import { FoodForm } from "./foods/FoodForm"
 import {MealProvider} from "./meals/MealProvider"
+import { ReviewProvider } from "./reviews/ReviewProvider"
 
 
 export const ApplicationViews = () => {
@@ -17,20 +18,20 @@ export const ApplicationViews = () => {
 
     {/* http://localhost:8088/foods */}
     <MealProvider>
-    <FoodProvider>
-        <Route exact path="/foods">
-            <FoodList />
-        </Route>
-        <Route path="/foods/create">
-            <FoodForm />
-        </Route>
-        <Route path="/foods/detail/:foodId(\d+)">
-            <FoodDetail />
-        </Route>
-        <Route path="/foods/edit/:foodId(\d+)">
-            <FoodForm />
-        </Route>
-    </FoodProvider>
+        <FoodProvider>
+            <Route exact path="/foods">
+                <FoodList />
+            </Route>
+            <Route path="/foods/create">
+                <FoodForm />
+            </Route>
+            <Route path="/foods/detail/:foodId(\d+)">
+                <FoodDetail />
+            </Route>
+            <Route path="/foods/edit/:foodId(\d+)">
+                <FoodForm />
+            </Route>
+        </FoodProvider>
     </MealProvider>
 
         {/* http://localhost:8088/badFoods */}
@@ -39,9 +40,13 @@ export const ApplicationViews = () => {
     </Route> */}
 
             {/* http://localhost:8088/reviews */}
-    {/* <Route path="/reviews">
+    <FoodProvider>        
+        <ReviewProvider>
+            <Route exact path="/reviews">
 
-    </Route> */}
+            </Route>
+        </ReviewProvider>
+    </FoodProvider>
 
             {/* http://localhost:8088/poops */}
     {/* <Route path="/poops">
