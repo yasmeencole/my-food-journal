@@ -13,7 +13,11 @@ const structureOfDate = {
 
 export const ReviewForm = () => {
     const { addReview, getReviewById, updateReview } = useContext(ReviewContext)
+    const { getReviews } = useContext(ReviewContext)
+
+
     const { foods, getFoods } = useContext(FoodContext)
+    console.log(foods)
     // const { customers, getCustomers } = useContext(CustomerContext)
     /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -24,7 +28,7 @@ export const ReviewForm = () => {
     const [review, setReview] = useState({
         id: "",
         userId: "",
-        foodId: 0,
+        foodId: "",
         rating: 0,
         text: "",
         timestamp: ""
@@ -36,7 +40,7 @@ const { reviewId } = useParams();
 const history = useHistory();
 
 useEffect(() => {
-    getFoods()
+    getReviews()
 }, [])
 
 //when field changes, update state. This causes a re-render and updates the view.
@@ -68,7 +72,8 @@ const handleSaveReview = () => {
         //PUT - update
         updateReview({
             id: review.id,
-            foodId: parseInt(review.food.name),
+            userId: parseInt(review.userId),
+            foodId: review.foodId,
             rating: review.rating,
             text: review.text,
             timestamp: review.timestamp
@@ -79,6 +84,7 @@ const handleSaveReview = () => {
         //POST - add
         addReview({
             id: review.id,
+            userId: parseInt(review.userId),
             foodId: review.foodId,
             rating: review.rating,
             text: review.text,
@@ -110,7 +116,7 @@ return (
     <h2 className="reviewForm__title">{reviewId ? "Edit Review" : "Add Review"}</h2>
     <fieldset>
         <div className="form-group">
-        <label htmlFor="employeeName">Review text: </label>
+        <label htmlFor="reviewText">Review text: </label>
         <input type="text" id="text" required autoFocus className="form-control"
         placeholder="Review Text"
         onChange={handleControlledInputChange}
@@ -124,7 +130,7 @@ return (
             <option value="0">Select a food</option>
             {foods.map(food => (
             <option key={food.id} value={food.id}>
-                {foods.name}
+                {food.name}
             </option>
             ))}
         </select>

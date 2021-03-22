@@ -1,14 +1,19 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { FoodList } from "./foods/FoodList"
-import { ReviewList } from "./reviews/ReviewList"
 import { FoodProvider } from "./foods/FoodProvider"
-import { ReviewProvider } from "./reviews/ReviewProvider"
+import { FoodList } from "./foods/FoodList"
 import { FoodDetail } from "./foods/FoodDetail"
-import { ReviewDetail } from "./reviews/ReviewDetail"
 import { FoodForm } from "./foods/FoodForm"
+import { ReviewProvider } from "./reviews/ReviewProvider"
+import { ReviewList } from "./reviews/ReviewList"
+import { ReviewDetail } from "./reviews/ReviewDetail"
 import { ReviewForm } from "./reviews/ReviewForm"
 import { MealProvider } from "./meals/MealProvider"
+import { PoopProvider } from "./poops/PoopProvider"
+import { PoopList } from "./poops/PoopList"
+import { PoopDetail } from "./poops/PoopDetail"
+import { PoopForm } from "./poops/PoopForm"
+
 
 
 export const ApplicationViews = () => {
@@ -63,10 +68,21 @@ export const ApplicationViews = () => {
     </MealProvider>
 
 
-            {/* http://localhost:8088/poops */}
-    {/* <Route path="/poops">
-
-    </Route> */}
+            {/* http://localhost:8088/poops */}    
+    <PoopProvider>
+        <Route exact path="/poops">
+            <PoopList />
+        </Route>
+        <Route path="/poops/create">
+            <PoopForm />
+        </Route>
+        <Route path="/poops/detail/:poopId(\d+)">
+            <PoopDetail />
+        </Route> 
+        <Route path="/poops/edit/:poopId(\d+)">
+            <PoopForm />
+        </Route>   
+    </PoopProvider>   
     
     </>
     )
