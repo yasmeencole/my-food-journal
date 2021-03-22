@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react"
 import { Review } from "./Review"
-import "./Review.css"
+// import "./Review.css"
 import { ReviewContext } from "./ReviewProvider"
 import { useHistory } from "react-router-dom";
 
@@ -36,6 +36,7 @@ export const ReviewList = () => {
         <div className="reviews">
         {
             filteredReviews.map(review => {
+                // if (review.id === foodId) 
             return <Review key={review.id} review={review} />
         })
         }

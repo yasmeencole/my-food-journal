@@ -21,7 +21,7 @@ export const FoodForm = () => {
 
     const [food, setFoods] = useState({
         id: "",
-        userId: "",
+        userId: 0,
         name: "",
         url: "",
         description: "",
