@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "../foods/FoodProvider"
 import { ReviewContext } from "./ReviewProvider"
 import { useHistory, useParams } from 'react-router-dom';
+import ReactStars from "react-rating-stars-component";
+
 
 const structureOfDate = {
     hour: '2-digit',
@@ -27,8 +29,8 @@ export const ReviewForm = () => {
 
     const [review, setReview] = useState({
         id: "",
-        userId: "",
-        foodId: "",
+        userId: 0,
+        foodId: 0,
         rating: 0,
         text: "",
         timestamp: ""
@@ -46,6 +48,7 @@ useEffect(() => {
 //when field changes, update state. This causes a re-render and updates the view.
 //Controlled component
 const handleControlledInputChange = (event) => {
+    console.log(event.target)
     //When changing a state object or array,
     //always create a copy make changes, and then set state.
     const newReview = { ...review }
@@ -98,7 +101,7 @@ const handleSaveReview = () => {
 
 // Get locations. If employeeId is in the URL, getEmployeeById
 useEffect(() => {
-    getFoods().then(getFoods).then(() => {
+    getReviews().then(getFoods).then(() => {
     if (reviewId) {
         getReviewById(reviewId)
         .then(review => {
@@ -111,9 +114,22 @@ useEffect(() => {
     })
 }, [])
 
+const ratingChanged = (newRating) => {
+    console.log(newRating)
+  };
+
 return (
     <form className="reviewForm">
     <h2 className="reviewForm__title">{reviewId ? "Edit Review" : "Add Review"}</h2>
+<fieldset>
+
+    <ReactStars
+    count={5}
+    onChange={ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+  />        
+</fieldset>
     <fieldset>
         <div className="form-group">
         <label htmlFor="reviewText">Review text: </label>

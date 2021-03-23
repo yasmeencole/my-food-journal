@@ -22,7 +22,7 @@ export const PoopForm = () => {
 
     const [poop, setPoops] = useState({
         id: "",
-        userId: "",
+        userId: 0,
         note: "",
         timestamp: "",
     });
@@ -62,7 +62,7 @@ const handleSavePoop = () => {
         //PUT - update
         updatePoop({
             id: poop.id,
-            userId: parseInt(poop.userId),
+            userId: poop.userId,
             note: poop.note,
             timestamp: poop.timestamp,
         })
@@ -71,7 +71,7 @@ const handleSavePoop = () => {
         //POST - add
         addPoop ({
             id: poop.id,
-            userId: parseInt(poop.userId),
+            userId: poop.userId,
             note: poop.note,
             timestamp: poop.timestamp,
         })

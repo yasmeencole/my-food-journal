@@ -26,14 +26,14 @@ export const FoodProvider = (props) => {
     } 
 
     const getFoods = () => {
-    return fetch("http://localhost:8088/foods")
+    return fetch("http://localhost:8088/foods?_expand=user")
         .then(response => response.json())
         .then(data => data.sort(timestampDate))
         .then(foodsData => setFoods(foodsData))
 }
 
 const addFood = foodObj => {
-    return fetch("http://localhost:8088/foods", {
+    return fetch("http://localhost:8088/foods?_expand=user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

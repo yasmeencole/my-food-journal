@@ -29,8 +29,7 @@ export const FoodDetail = () => {
 
     return (
         <section className="food">
-        <h3 className="food__name">{food.name}</h3>
-        {/* <div className="food__url" src={food.url}>{food.url}</div> */}
+        <h3 className="food__name">{food.id}</h3>
 
         <div className="food__description">About this meal: {food.description}</div>
 

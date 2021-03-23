@@ -25,14 +25,14 @@ export const ReviewProvider = (props) => {
     } // 
     
     const getReviews = () => {
-    return fetch("http://localhost:8088/reviews")
+    return fetch("http://localhost:8088/reviews?_expand=food")
         .then(response => response.json())
         .then(data => data.sort(timestampDate))
         .then(foodsData => setReviews(foodsData))
 }
 
 const addReview = reviewsObj => {
-    return fetch("http://localhost:8088/reviews", {
+    return fetch("http://localhost:8088/reviews?_expand=food", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -44,7 +44,7 @@ const addReview = reviewsObj => {
 
 
 const getReviewById = (id) => {
-    return fetch(`http://localhost:8088/reviews/${id}?`)
+    return fetch(`http://localhost:8088/reviews/${id}?_expand=food`)
         .then(res => res.json())
 }
 
@@ -56,7 +56,7 @@ const deleteReview = reviewId => {
 }
 
 const updateReview = review => {
-return fetch(`http://localhost:8088/reviews/${review.id}`, {
+return fetch(`http://localhost:8088/reviews?/${review.id}`, {
     method: "PUT",
     headers: {
     "Content-Type": "application/json"
