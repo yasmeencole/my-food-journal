@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from 'react-router-dom';
-// import { userStorageKey } from "../auth/authSettings"
+import { userStorageKey } from "../auth/authSettings"
 import { MealContext } from "../meals/MealProvider"
 
 
@@ -21,7 +21,7 @@ export const FoodForm = () => {
 
     const [food, setFoods] = useState({
         id: "",
-        userId: 0,
+        userId: parseInt(sessionStorage.getItem(userStorageKey)),
         name: "",
         url: "",
         description: "",
