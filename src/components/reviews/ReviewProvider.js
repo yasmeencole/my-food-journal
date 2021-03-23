@@ -25,7 +25,7 @@ export const ReviewProvider = (props) => {
     } // 
     
     const getReviews = () => {
-    return fetch("http://localhost:8088/reviews")
+    return fetch("http://localhost:8088/reviews?_expand=food")
         .then(response => response.json())
         .then(data => data.sort(timestampDate))
         .then(foodsData => setReviews(foodsData))
@@ -44,7 +44,7 @@ const addReview = reviewsObj => {
 
 
 const getReviewById = (id) => {
-    return fetch(`http://localhost:8088/reviews/${id}?`)
+    return fetch(`http://localhost:8088/reviews/${id}`)
         .then(res => res.json())
 }
 
