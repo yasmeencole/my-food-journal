@@ -33,7 +33,7 @@ export const FoodProvider = (props) => {
 }
 
 const addFood = foodObj => {
-    return fetch("http://localhost:8088/foods", {
+    return fetch("http://localhost:8088/foods?_expand=user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
