@@ -30,10 +30,11 @@ export const FoodDetail = (currentUserId, review) => {
     }
 
     return (
-        <section className={parseInt(currentUserId) === food.userId ? "currentUser" : "otherUserFood"}>
+
+
+        <section className="food">
         <h3 className="food__name">{food.name}</h3>
-        {/* <div className="food__url" src={food.url}>{food.url}</div> */}
-        <div className="food__rating">Rating: {food.reviews.rating}</div>
+        <div className="food__rating">Rating: {food.review?.rating}</div>
 
         <div className="food__description">About this meal: {food.description}</div>
 

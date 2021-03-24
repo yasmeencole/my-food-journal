@@ -13,6 +13,8 @@ import { PoopProvider } from "./poops/PoopProvider"
 import { PoopList } from "./poops/PoopList"
 import { PoopDetail } from "./poops/PoopDetail"
 import { PoopForm } from "./poops/PoopForm"
+import { FoodSearch } from "./foods/FoodSearch";
+
 
 
 
@@ -28,6 +30,7 @@ export const ApplicationViews = () => {
     <MealProvider>
         <FoodProvider>
             <Route exact path="/foods">
+                <FoodSearch />
                 <FoodList />
             </Route>
             <Route path="/foods/create">

@@ -30,7 +30,7 @@ export const ReviewDetail = () => {
 
     return (
         <section className="review">
-        <h3 className="review__text">{review.title}</h3>
+        <h3 className="review__text">{review.food?.name}</h3>
 
         {/* <div className="food__url" src={food.url}>{food.url}</div> */}
         <div className="review__rating">Rating: {review.rating}</div>
