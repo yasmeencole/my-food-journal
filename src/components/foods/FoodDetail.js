@@ -7,6 +7,7 @@ import { userStorageKey } from "../auth/authSettings"
 
 
 export const FoodDetail = (currentUserId, review) => {
+    
     const { getFoodById, deleteFood } = useContext(FoodContext)
 
     const [food, setFoods] = useState({})

@@ -47,6 +47,7 @@ export const ApplicationViews = () => {
         {/* http://localhost:8088/badFoods */}
     <FoodProvider>
     <Route path="/badFoods">
+        <FoodSearch />
         <BadFood />
     </Route>
     </FoodProvider>

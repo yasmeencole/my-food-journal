@@ -29,7 +29,7 @@ export const ReviewForm = () => {
 
     const [review, setReview] = useState({
         id: "",
-        userId: 0,
+        userId: parseInt(sessionStorage.getItem("app_user_id")),
         foodId: 0,
         rating: 0,
         text: "",
@@ -76,7 +76,7 @@ const handleSaveReview = () => {
         updateReview({
             id: review.id,
             userId: parseInt(review.userId),
-            foodId: review.foodId,
+            foodId: parseInt(review.foodId),
             rating: review.rating,
             text: review.text,
             timestamp: review.timestamp
@@ -88,7 +88,7 @@ const handleSaveReview = () => {
         addReview({
             id: review.id,
             userId: parseInt(review.userId),
-            foodId: review.foodId,
+            foodId: parseInt(review.foodId),
             rating: review.rating,
             text: review.text,
             timestamp: review.timestamp
@@ -115,8 +115,13 @@ useEffect(() => {
 }, [])
 
 const ratingChanged = (newRating) => {
-    console.log(newRating)
-  };
+
+const newReview = { ...review }
+newReview.rating = newRating
+
+setReview(newReview);
+
+};
 
 return (
     <form className="reviewForm">

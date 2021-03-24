@@ -22,7 +22,7 @@ export const FoodForm = () => {
 
     const [food, setFoods] = useState({
         id: "",
-        userId: parseInt(sessionStorage.getItem(userStorageKey)),
+        userId: parseInt(sessionStorage.getItem("app_user_id")),
         name: "",
         url: "",
         description: "",
@@ -126,6 +126,7 @@ export const FoodForm = () => {
                     <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Description of Food" value={food.description}/>
                 </div>
             </fieldset>
+            {/* dropdown to select a Type of Meal */}
             <fieldset>
                 <div className="form-group">
                 <label htmlFor="meal">Type of Meal: </label>
@@ -139,6 +140,7 @@ export const FoodForm = () => {
                 </select>
                 </div>
             </fieldset>
+            {/* input for picture url */}
             <fieldset>
                 <div className="food__url">
                     <label htmlFor="url">Link:</label>

@@ -16,6 +16,8 @@ export const FoodList = () => {
     const [ filteredFoods, setFiltered ] = useState([])
     const history = useHistory()
 
+
+    // listOfFoods is === to the entire list of MyFoods
     const listOfFoods = foods.filter(food => currentUserId === food.userId)
 
 
