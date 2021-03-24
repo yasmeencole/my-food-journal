@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from 'react-router-dom';
-import { userStorageKey } from "../auth/authSettings"
 import { MealContext } from "../meals/MealProvider"
 
 
@@ -19,6 +18,7 @@ export const FoodForm = () => {
     const { addFood, getFoodById, updateFood } = useContext(FoodContext)
     const { getFoods } = useContext(FoodContext)
     const { meals, getMeals } = useContext(MealContext)
+    
 
     const [food, setFoods] = useState({
         id: "",
@@ -85,7 +85,7 @@ export const FoodForm = () => {
                 name: food.name,
                 url: food.url,
                 description: food.description,
-                mealTypeId: food.mealTypeId,
+                mealTypeId: parseInt(food.mealTypeId),
                 isGood: food.isGood,
                 timestamp: food.timestamp
             })

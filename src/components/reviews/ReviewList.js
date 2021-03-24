@@ -5,12 +5,19 @@ import { ReviewContext } from "./ReviewProvider"
 import { useHistory } from "react-router-dom";
 
 
+
 export const ReviewList = () => {
-    // This state changes when `getReviews()` is invoked below
+    parseInt(sessionStorage.getItem("app_user_id")) 
+
+    // This state changes when `getFoods()` is invoked below
     const { reviews, getReviews, searchTerms } = useContext(ReviewContext)
 
     const [ filteredReviews, setFiltered ] = useState([])
     const history = useHistory()
+
+
+    // listOfFoods is === to the entire list of MyFoods
+
 
     useEffect(() => {
         getReviews()
@@ -19,7 +26,7 @@ export const ReviewList = () => {
     useEffect(() => {
         if (searchTerms !== "") {
             // If the search field is not blank, display matching foods
-            const subset = reviews.filter(review => review.name.toLowerCase().includes(searchTerms))
+            const subset = reviews.filter(review => review.food.name.toLowerCase().includes(searchTerms))
             setFiltered(subset)
         } else {
             // If the search field is blank, display all foods
@@ -30,13 +37,12 @@ export const ReviewList = () => {
     return (
     <>
     <section>
-        <h2 className="review__myReviewsTitle">My Reviews</h2>
+        <h2 className="food__reviewsTitle">My Reviews</h2>
         <button onClick={() => { history.push("/reviews/create") }}>New Review</button>
 
         <div className="reviews">
         {
             filteredReviews.map(review => {
-                // if (review.id === foodId) 
             return <Review key={review.id} review={review} />
         })
         }

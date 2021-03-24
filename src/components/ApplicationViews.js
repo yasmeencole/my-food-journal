@@ -15,6 +15,7 @@ import { PoopDetail } from "./poops/PoopDetail"
 import { PoopForm } from "./poops/PoopForm"
 import { FoodSearch } from "./foods/FoodSearch";
 import { BadFood } from "./foods/BadFood"
+import { ReviewSearch } from "./reviews/ReviewSearch";
 
 
 export const ApplicationViews = () => {
@@ -47,7 +48,6 @@ export const ApplicationViews = () => {
         {/* http://localhost:8088/badFoods */}
     <FoodProvider>
     <Route path="/badFoods">
-        <FoodSearch />
         <BadFood />
     </Route>
     </FoodProvider>
@@ -57,6 +57,7 @@ export const ApplicationViews = () => {
     <FoodProvider>        
         <ReviewProvider>
             <Route exact path="/reviews">
+                <ReviewSearch />
                 <ReviewList />
             </Route>
             <Route path="/reviews/create">

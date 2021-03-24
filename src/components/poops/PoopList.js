@@ -6,11 +6,16 @@ import { useHistory } from "react-router-dom";
 
 
 export const PoopList = () => {
+    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
+
     // This state changes when `getCustomers()` is invoked below
     const { poops, getPoops, searchTerms } = useContext(PoopContext)
 
     const [ filteredPoops, setFiltered ] = useState([])
     const history = useHistory()
+
+    const listOfPoops = poops.filter(poop => currentUserId === poop.userId)
+
 
     useEffect(() => {
         getPoops()
@@ -34,7 +39,7 @@ export const PoopList = () => {
 
         <div className="poops">
         {
-            filteredPoops.map(poop => {
+            listOfPoops.map(poop => {
             return <Poop key={poop.id} poop={poop} />
         })
         }

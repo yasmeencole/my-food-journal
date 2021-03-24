@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 
 export const FoodList = () => {
     const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
+    
 
     // This state changes when `getFoods()` is invoked below
     const { foods, getFoods, searchTerms } = useContext(FoodContext)
@@ -18,7 +19,7 @@ export const FoodList = () => {
 
 
     // listOfFoods is === to the entire list of MyFoods
-    const listOfFoods = foods.filter(food => currentUserId === food.userId)
+    // const listOfFoods = foods.filter(food => currentUserId === food.userId)
 
 
     useEffect(() => {
@@ -39,16 +40,18 @@ export const FoodList = () => {
     return (
     <>
     <section>
+
         <h2 className="food__myFoodsTitle">My Foods</h2>
         <button onClick={() => { history.push("/foods/create") }}>New Food</button>
 
         <div className="foods">
         {
-            listOfFoods.map(food => {
-            return <Food key={food.id} food={food} />
-        })
+            filteredFoods.map(food => {
+                return <Food key={food.id} food={food} />
+            })
         }
         </div>
+
     </section>
     </>
 )
