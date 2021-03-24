@@ -26,7 +26,7 @@ export const FoodProvider = (props) => {
     } 
 
     const getFoods = () => {
-    return fetch("http://localhost:8088/foods?_expand=user")
+    return fetch("http://localhost:8088/foods?_embed=reviews")
         .then(response => response.json())
         .then(data => data.sort(timestampDate))
         .then(foodsData => setFoods(foodsData))
