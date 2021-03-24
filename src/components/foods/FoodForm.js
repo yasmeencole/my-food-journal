@@ -14,6 +14,7 @@ const structureOfDate = {
     day: "numeric"
 }
 
+
 export const FoodForm = () => {
     const { addFood, getFoodById, updateFood } = useContext(FoodContext)
     const { getFoods } = useContext(FoodContext)

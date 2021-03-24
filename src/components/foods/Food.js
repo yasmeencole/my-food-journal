@@ -10,6 +10,8 @@ export const Food = ({food}) => {
     <Card.Img variant="top" src={food.url} />
     <Card.Body>
         <Card.Title>{food.name}</Card.Title>
+        <Card.Text>{food.isGood}</Card.Text>
+
         {/* <Card.Text>{food.description}</Card.Text> */}
         <Link to={`/foods/detail/${food.id}`}>
             <Button>
