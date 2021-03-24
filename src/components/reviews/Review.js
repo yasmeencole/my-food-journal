@@ -15,7 +15,7 @@ export const Review = ({review}) => {
     <Card className="review__foodName" style={{ width: '18rem' }}>
     <Card.Body>
         <Card.Title>{review.food.name}</Card.Title>
-    <ReactStars
+    <ReactStars value={review.rating}
     count={5}
     onChange={ratingChanged}
     size={24}

@@ -3,14 +3,23 @@ import { Food } from "./Food"
 import "./Food.css"
 import { FoodContext } from "./FoodProvider"
 import { useHistory } from "react-router-dom";
+// import { userStorageKey } from "../auth/authSettings"
+
 
 
 export const FoodList = () => {
+    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
+
     // This state changes when `getFoods()` is invoked below
     const { foods, getFoods, searchTerms } = useContext(FoodContext)
 
     const [ filteredFoods, setFiltered ] = useState([])
     const history = useHistory()
+
+
+    // listOfFoods is === to the entire list of MyFoods
+    const listOfFoods = foods.filter(food => currentUserId === food.userId)
+
 
     useEffect(() => {
         getFoods()
@@ -35,7 +44,7 @@ export const FoodList = () => {
 
         <div className="foods">
         {
-            filteredFoods.map(food => {
+            listOfFoods.map(food => {
             return <Food key={food.id} food={food} />
         })
         }

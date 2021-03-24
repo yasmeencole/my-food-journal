@@ -14,8 +14,7 @@ import { PoopList } from "./poops/PoopList"
 import { PoopDetail } from "./poops/PoopDetail"
 import { PoopForm } from "./poops/PoopForm"
 import { FoodSearch } from "./foods/FoodSearch";
-
-
+import { BadFood } from "./foods/BadFood"
 
 
 export const ApplicationViews = () => {
@@ -48,7 +47,8 @@ export const ApplicationViews = () => {
         {/* http://localhost:8088/badFoods */}
     <FoodProvider>
     <Route path="/badFoods">
-    <FoodList />
+        <FoodSearch />
+        <BadFood />
     </Route>
     </FoodProvider>
 
