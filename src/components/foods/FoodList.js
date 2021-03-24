@@ -8,13 +8,15 @@ import { useHistory } from "react-router-dom";
 
 
 export const FoodList = () => {
-    // const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
+    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
 
     // This state changes when `getFoods()` is invoked below
     const { foods, getFoods, searchTerms } = useContext(FoodContext)
 
     const [ filteredFoods, setFiltered ] = useState([])
     const history = useHistory()
+
+    const listOfFoods = foods.filter(food => currentUserId === food.userId)
 
 
     useEffect(() => {
@@ -40,7 +42,7 @@ export const FoodList = () => {
 
         <div className="foods">
         {
-            filteredFoods.map(food => {
+            listOfFoods.map(food => {
             return <Food key={food.id} food={food} />
         })
         }

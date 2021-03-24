@@ -17,8 +17,6 @@ import { FoodSearch } from "./foods/FoodSearch";
 import { BadFood } from "./foods/BadFood"
 
 
-
-
 export const ApplicationViews = () => {
     return (
     <>
@@ -50,8 +48,6 @@ export const ApplicationViews = () => {
     <FoodProvider>
     <Route path="/badFoods">
         <BadFood />
-    {/* <FoodList /> */}
-
     </Route>
     </FoodProvider>
 
