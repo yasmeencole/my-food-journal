@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useState } from "react"
 import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from "react-router-dom"
-import { userStorageKey } from "../auth/authSettings"
 
 
 
-export const FoodDetail = (currentUserId, review) => {
+export const FoodDetail = () => {
     
     const { getFoodById, deleteFood } = useContext(FoodContext)
 
@@ -35,12 +34,12 @@ export const FoodDetail = (currentUserId, review) => {
 
         <section className="food">
         <h3 className="food__name">{food.name}</h3>
-        <div className="food__rating">Rating: {food.review?.rating}</div>
+        {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
 
         <div className="food__description">About this meal: {food.description}</div>
 
         <div className="food__timestamp">Timestamp: {food.timestamp}</div>
-        {parseInt(sessionStorage.getItem(userStorageKey)) === food.userId ?
+        {parseInt(sessionStorage.getItem("app_user_id")) === food.userId ?
 
         <div>
         <button onClick={handleRelease}>Release food</button>

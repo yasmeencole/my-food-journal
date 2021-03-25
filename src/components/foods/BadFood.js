@@ -9,7 +9,6 @@ import { Food } from "./Food"
 
 export const BadFood = ({ badFood }) =>{
     const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
-
     // const history = useHistory(); 
     const { foods, getFoods } = useContext(FoodContext)
 

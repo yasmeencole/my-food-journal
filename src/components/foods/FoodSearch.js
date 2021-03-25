@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { FoodContext } from "./FoodProvider"
-import "./Food.css"
+// import "./Food.css"
+import "./Food"
 
 export const FoodSearch = () => {
     const { setSearchTerms } = useContext(FoodContext)
@@ -9,7 +10,7 @@ export const FoodSearch = () => {
         <>
         Food Search:
         <input type="text"
-            className="input--wide"
+            className="input--wide" 
             onKeyUp={(event) => setSearchTerms(event.target.value)}
             placeholder="Search for a food... " />
         </>
