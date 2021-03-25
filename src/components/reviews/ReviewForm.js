@@ -137,15 +137,6 @@ return (
 </fieldset>
     <fieldset>
         <div className="form-group">
-        <label htmlFor="reviewText">Review text: </label>
-        <input type="text" id="text" required autoFocus className="form-control"
-        placeholder="Review Text"
-        onChange={handleControlledInputChange}
-        value={review.text}/>
-        </div>
-    </fieldset>
-    <fieldset>
-        <div className="form-group">
         <label htmlFor="food">Assign to Food: </label>
         <select value={review.foodId} id="foodId" className="form-control" onChange={handleControlledInputChange}>
             <option value="0">Select a food</option>
@@ -157,6 +148,16 @@ return (
         </select>
         </div>
     </fieldset>
+    <fieldset>
+        <div className="form-group">
+        <label htmlFor="reviewText">Review text: </label>
+        <input type="text" id="text" required autoFocus className="form-control"
+        placeholder="Review Text"
+        onChange={handleControlledInputChange}
+        value={review.text}/>
+        </div>
+    </fieldset>
+
     <fieldset>
         <div className="food__timeStamp">
             <label htmlFor="timestamp">Timestamp:</label>

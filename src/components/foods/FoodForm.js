@@ -3,6 +3,8 @@ import { FoodContext } from "./FoodProvider"
 import "./Food.css"
 import { useParams, useHistory } from 'react-router-dom';
 import { MealContext } from "../meals/MealProvider"
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import ToggleButton from 'react-bootstrap/ToggleButton'
 
 
 const structureOfDate = {
@@ -18,7 +20,19 @@ export const FoodForm = () => {
     const { addFood, getFoodById, updateFood } = useContext(FoodContext)
     const { getFoods } = useContext(FoodContext)
     const { meals, getMeals } = useContext(MealContext)
+    const [checked, setChecked] = useState(false);
+    const [radioValue, setRadioValue] = useState( '1' );
     
+
+    const radios = [
+        // { name: 'Active', value: '1' },
+        { name: 'Good', value: true },
+        { name: 'Bad', value: false },
+    ];
+    
+
+    // this is declaring food as a vairable and setFoods as a function that sets the state 
+    // of the variable and invokes it
 
     const [food, setFoods] = useState({
         id: "",
@@ -43,16 +57,35 @@ export const FoodForm = () => {
         getFoods()
     }, [])
 
+// handleControlledInputChange is responsible for changing the event
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
         const newFood = { ...food }
-        const dateRep = new Date()
 
+
+        const dateRep = new Date()
+// console.log("value :" , event.target.value, "id :" , event.target.name)
         /* Food is an object with properties.
         Set the property to the new value
         using object bracket notation. */
-        newFood[event.target.id] = event.target.value
+
+        // this tells the button to grab the id of the new food that has been created
+        if (event.target.id) {
+            newFood[event.target.id] = event.target.value
+// if there is no id then grab the name of the new food that was created
+// this will grab the value, which is the "name". The name is as a string and it needs to be 
+// converted to a boolean of true and false.
+        }else {
+            if (event.target.value === "true") {
+                newFood[event.target.name] = true
+            }
+            else {
+                newFood[event.target.name] = false
+
+            }
+
+        }
         newFood.timestamp = `${dateRep.toLocaleDateString('en-US', structureOfDate)}`
         // update state
         setFoods(newFood)
@@ -114,20 +147,8 @@ export const FoodForm = () => {
         return (
         <form className="foodForm">
             <h2 className="foodForm__title">{foodId ? "Edit Food" : "Add New Food"}</h2>
-            <fieldset>
-                <div className="food__name">
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Food" value={food.name}/>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="food__description">
-                    <label htmlFor="description">Description:</label>
-                    <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Description of Food" value={food.description}/>
-                </div>
-            </fieldset>
-            {/* dropdown to select a Type of Meal */}
-            <fieldset>
+                        {/* dropdown to select a Type of Meal */}
+                        <fieldset>
                 <div className="form-group">
                 <label htmlFor="meal">Type of Meal: </label>
                 <select value={food.mealTypeId} id="mealTypeId" className="form-control" onChange={handleControlledInputChange}>
@@ -138,6 +159,48 @@ export const FoodForm = () => {
                     </option>
                     ))}
                 </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                {/* <ButtonGroup toggle className="mb-2">
+                    <ToggleButton
+                    type="checkbox"
+                    variant="secondary"
+                    checked={checked}
+                    value="1"
+                    onChange={(e) => setChecked(e.currentTarget.checked)}
+                    >
+                    Checked
+                    </ToggleButton>
+                </ButtonGroup>
+                <br /> */}
+                <ButtonGroup toggle>
+                    {radios.map((radio, idx) => (
+                    <ToggleButton
+                        id="isGood"
+                        key={idx}
+                        type="radio"
+                        variant="secondary"
+                        name="isGood"
+                        value={radio.value}
+                        checked={radioValue === radio.value}
+                        onChange={handleControlledInputChange}
+                    >
+                        {radio.name}
+                    </ToggleButton>
+                    ))}
+                </ButtonGroup>
+            </fieldset>
+            <fieldset>
+                <div className="food__name">
+                    <label htmlFor="name">Name:</label>
+                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Food" value={food.name}/>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="food__description">
+                    <label htmlFor="description">Description:</label>
+                    <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Description of Food" value={food.description}/>
                 </div>
             </fieldset>
             {/* input for picture url */}

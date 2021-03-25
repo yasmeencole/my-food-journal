@@ -99,16 +99,16 @@ return (
     <form className="poopForm">
     <h2 className="poopForm__title">{poopId ? "Edit Poop" : "Add Poop"}</h2>
     <fieldset>
-        <div className="poop__timeStamp">
-            <label htmlFor="timestamp">Timestamp:</label>
-            <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={poop.timestamp}/>
-        </div>     
-    </fieldset>
-    <fieldset>
         <div className="poop__note">
             <label htmlFor="note">Note:</label>
             <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Text" value={poop.note}/>
         </div>
+    </fieldset>
+    <fieldset>
+        <div className="poop__timeStamp">
+            <label htmlFor="timestamp">Timestamp:</label>
+            <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={poop.timestamp}/>
+        </div>     
     </fieldset>
     <button className="btn btn-primary"
         disabled={isLoading}

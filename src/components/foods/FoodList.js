@@ -19,7 +19,7 @@ export const FoodList = () => {
 
 
     // listOfFoods is === to the entire list of MyFoods
-    // const listOfFoods = foods.filter(food => currentUserId === food.userId)
+    const listOfFoods = filteredFoods.filter(food => currentUserId === food.userId)
 
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export const FoodList = () => {
 
         <div className="foods">
         {
-            filteredFoods.map(food => {
+            listOfFoods.map(food => {
                 return <Food key={food.id} food={food} />
             })
         }

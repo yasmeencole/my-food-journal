@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 
 
 export const ReviewList = () => {
-    parseInt(sessionStorage.getItem("app_user_id")) 
+    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
 
     // This state changes when `getFoods()` is invoked below
     const { reviews, getReviews, searchTerms } = useContext(ReviewContext)
@@ -17,6 +17,7 @@ export const ReviewList = () => {
 
 
     // listOfFoods is === to the entire list of MyFoods
+    const listOfReviews = filteredReviews.filter(review => currentUserId === review.userId)
 
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export const ReviewList = () => {
 
         <div className="reviews">
         {
-            filteredReviews.map(review => {
+            listOfReviews.map(review => {
             return <Review key={review.id} review={review} />
         })
         }
