@@ -19,7 +19,7 @@ export const ReviewList = () => {
     // listOfFoods is === to the entire list of MyFoods
     const listOfReviews = filteredReviews.filter(review => currentUserId === review.userId)
 
-
+// useEffects runs once after intial render and does not run again
     useEffect(() => {
         getReviews()
     }, [])

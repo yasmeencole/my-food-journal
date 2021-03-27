@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react"
 
 // The context is imported and used by individual components that need data
+// Context is primarily used when some data needs to be accessible by many components at
+//  different nesting levels. Use context sparingly because it makes component more difficult to reuse.
 export const FoodContext = createContext()
 
 // This component establishes what data can be used.
@@ -14,12 +16,12 @@ export const FoodProvider = (props) => {
 
     const timestampDate = (currurentDate, followingDate) => {
         /*
-        Sort by month, day, year, time.
+        This will sort by month, day, year, and time.
         
-        Workaround to json-server's &_sort= .
+        This is a workaround to json-server's &_sort= .
         Does not sort correctly if using double-digit days.
     */
-    
+    // Date constructor allows for retrivals of the date and time
     if ( Date.parse(followingDate.timestamp) < Date.parse(currurentDate.timestamp) ) { return -1; }
     if ( Date.parse(followingDate.timestamp) > Date.parse(currurentDate.timestamp) ) { return 1; }
     return 0;
@@ -56,6 +58,7 @@ const deleteFood = foodId => {
     .then(getFoods)
 }
 
+// put request that updates food when edit button is clicked
 const updateFood = food => {
 return fetch(`http://localhost:8088/foods/${food.id}`, {
     method: "PUT",
@@ -74,9 +77,10 @@ return fetch(`http://localhost:8088/foods/${food.id}`, {
     allows any child elements to access them.
   */
     return (
+        // FoodContext.Provider allow you to access child components
     <FoodContext.Provider value={{
-    //   foods: foods, 
-    //   getFoods: getFoods
+        
+    // these are the child components of FoodContext.Provider
         foods, getFoods, addFood, getFoodById, deleteFood, updateFood, searchTerms, setSearchTerms
     }}>
         {props.children}

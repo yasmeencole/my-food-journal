@@ -17,15 +17,21 @@ const structureOfDate = {
 
 
 export const FoodForm = () => {
-    const { addFood, getFoodById, updateFood } = useContext(FoodContext)
-    const { getFoods } = useContext(FoodContext)
-    const { meals, getMeals } = useContext(MealContext)
-    const [checked, setChecked] = useState(false);
-    const [radioValue, setRadioValue] = useState( '1' );
-    
 
+    // allows you to have access to and be able to addFood, getFoodById, and updateFood 
+    const { addFood, getFoodById, updateFood, getFoods } = useContext(FoodContext)
+
+    // meals are the current state and getMeals is the function that allows us to update the state
+    const { meals, getMeals } = useContext(MealContext)
+
+// useState( '1' ) is setting the intial value of the radios to 1
+    const [radioValue] = useState( '1' ); 
+    
+// defines radio buttons and gives them a value of true or false
+// if a food is "Good" isGood === true
+// if a food is "Bad" isGood === false
     const radios = [
-        // { name: 'Active', value: '1' },
+
         { name: 'Good', value: true },
         { name: 'Bad', value: false },
     ];
@@ -34,6 +40,7 @@ export const FoodForm = () => {
     // this is declaring food as a vairable and setFoods as a function that sets the state 
     // of the variable and invokes it
 
+    // this useState sets the state of the id, userId, name, url, etc.
     const [food, setFoods] = useState({
         id: "",
         userId: parseInt(sessionStorage.getItem("app_user_id")),
@@ -62,6 +69,7 @@ export const FoodForm = () => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
         const newFood = { ...food }
+        // ...food is a copy of const [food, setFoods] = useState({
 
 
         const dateRep = new Date()
@@ -162,18 +170,6 @@ export const FoodForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-                {/* <ButtonGroup toggle className="mb-2">
-                    <ToggleButton
-                    type="checkbox"
-                    variant="secondary"
-                    checked={checked}
-                    value="1"
-                    onChange={(e) => setChecked(e.currentTarget.checked)}
-                    >
-                    Checked
-                    </ToggleButton>
-                </ButtonGroup>
-                <br /> */}
                 <ButtonGroup toggle>
                     {radios.map((radio, idx) => (
                     <ToggleButton
@@ -211,10 +207,10 @@ export const FoodForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="food__timeStamp">
+                {/* <div className="food__timeStamp">
                     <label htmlFor="timestamp">Timestamp:</label>
                     <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={food.timestamp}/>
-                </div>
+                </div> */}
                 
             </fieldset>
             <button className="btn btn-primary"

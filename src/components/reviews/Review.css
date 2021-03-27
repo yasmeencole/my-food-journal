@@ -1,10 +1,10 @@
-.foods {
+.reviews {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.food {
-    flex-basis: 20%;
+.review {
+    flex-basis: 40%;
     margin: 1em;
 }

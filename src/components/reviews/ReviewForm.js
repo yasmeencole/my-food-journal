@@ -14,6 +14,8 @@ const structureOfDate = {
 }
 
 export const ReviewForm = () => {
+    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
+
     const { addReview, getReviewById, updateReview } = useContext(ReviewContext)
     const { getReviews } = useContext(ReviewContext)
 
@@ -133,14 +135,14 @@ return (
     onChange={ratingChanged}
     size={24}
     activeColor="#ffd700"
-  />        
+/>        
 </fieldset>
     <fieldset>
         <div className="form-group">
         <label htmlFor="food">Assign to Food: </label>
         <select value={review.foodId} id="foodId" className="form-control" onChange={handleControlledInputChange}>
             <option value="0">Select a food</option>
-            {foods.map(food => (
+            {foods.filter(food => currentUserId === food.userId).map(food => (
             <option key={food.id} value={food.id}>
                 {food.name}
             </option>
@@ -158,12 +160,12 @@ return (
         </div>
     </fieldset>
 
-    <fieldset>
+    {/* <fieldset>
         <div className="food__timeStamp">
             <label htmlFor="timestamp">Timestamp:</label>
             <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={review.timestamp}/>
         </div>
-    </fieldset>
+    </fieldset> */}
     <button className="btn btn-primary"
         disabled={isLoading}
         onClick={event => {

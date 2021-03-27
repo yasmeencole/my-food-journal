@@ -26,8 +26,13 @@ export const ReviewProvider = (props) => {
     
     const getReviews = () => {
     return fetch("http://localhost:8088/reviews?_expand=food")
+
+// this is the reponse that is accessed with the parameter "response"
         .then(response => response.json())
+
+        // this converts from a string to json
         .then(data => data.sort(timestampDate))
+        
         .then(foodsData => setReviews(foodsData))
 }
 

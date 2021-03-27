@@ -3,14 +3,15 @@ import { Link } from "react-router-dom"
 import Card from "react-bootstrap/Card";
 import Button from 'react-bootstrap/Button';
 import ReactStars from "react-rating-stars-component";
+import "./Review.css"
 
 
 
 export const Review = ({review}) => {
 
     const ratingChanged = (newRating) => {
-        console.log(newRating);
-      };
+        // console.log(newRating);
+    };
     return (
     <Card className="review__foodName" style={{ width: '18rem' }}>
     <Card.Body>
@@ -20,7 +21,7 @@ export const Review = ({review}) => {
     onChange={ratingChanged}
     size={24}
     activeColor="#ffd700"
-  /> 
+/> 
         <Card.Text>{review.text}</Card.Text>
         <Link to={`/reviews/detail/${review.id}`}>
             <Button>

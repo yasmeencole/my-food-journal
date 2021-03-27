@@ -3,14 +3,18 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom"
 import "./Food.css"
 
+// food card that appears for route http://localhost:3000/foods contains: image, food name 
+// and details button
 
+
+// food is a prop/parameter
 export const Food = ({food}) => {
     return (
     <Card className="food" style={{ width: '18rem' }}>
     <Card.Img variant="top" src={food.url} />
     <Card.Body>
         <Card.Title>{food.name}</Card.Title>
-        <Card.Text>{food.isGood}</Card.Text>
+        {/* <Card.Text>{food.isGood}</Card.Text> */}
 
         {/* <Card.Text>{food.description}</Card.Text> */}
         <Link to={`/foods/detail/${food.id}`}>
