@@ -7,7 +7,11 @@ import "./Food.css"
 // and details button
 
 
-// food is a prop/parameter
+// {food} is a prop/parameter
+/*
+props are how we pass state from component to component. Props can be deconstructed with
+{curly brackets} and passed down to the child components 
+*/
 export const Food = ({food}) => {
     return (
     <Card className="food" style={{ width: '18rem' }}>

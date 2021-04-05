@@ -18,18 +18,27 @@ const structureOfDate = {
 
 export const FoodForm = () => {
 
-    // allows you to have access to and be able to addFood, getFoodById, and updateFood 
+/*
+useContext() - is a way to pass data through the component tree w/o havin to pass down 
+manually at every level.
+useContext() - lets you subscribe to React context without introducing nesting.
+useContext() - Used by UI components that need data stored in the context, and 
+exposed by the provider component.
+*/
+
     const { addFood, getFoodById, updateFood, getFoods } = useContext(FoodContext)
 
-    // meals are the current state and getMeals is the function that allows us to update the state
+// meals are the current state and getMeals is the function that allows us to update the state
     const { meals, getMeals } = useContext(MealContext)
 
-// useState( '1' ) is setting the intial value of the radios to 1
+
+// useState( '1' ) is setting the intial value of radios to 1
     const [radioValue] = useState( '1' ); 
     
-// defines radio buttons and gives them a value of true or false
-// if a food is "Good" isGood === true
-// if a food is "Bad" isGood === false
+/*defines radio buttons and gives them a value of true or false
+if a food is "Good" isGood === true
+if a food is "Bad" isGood === false
+*/
     const radios = [
 
         { name: 'Good', value: true },
@@ -37,10 +46,25 @@ export const FoodForm = () => {
     ];
     
 
-    // this is declaring food as a vairable and setFoods as a function that sets the state 
-    // of the variable and invokes it
+/*
+const [food, setFoods] = useState({})
 
-    // this useState sets the state of the id, userId, name, url, etc.
+this is declaring food as a vairable and setFoods as a function that sets the state 
+of the variable and invokes it
+
+/*useState hook takes the initial value of our state as the only argument, and it
+returns an array of two elements. The first element is our state variable and
+the second element is a function in which we can use the update the value
+of the state variable.
+
+food is the state variable 
+setFoods is a function which we can use to update the value of food.
+Every time state is updated, the component will re-render
+
+useState to hold and set the array of foods.
+const foods  = []
+*/
+
     const [food, setFoods] = useState({
         id: "",
         userId: parseInt(sessionStorage.getItem("app_user_id")),
@@ -57,9 +81,9 @@ export const FoodForm = () => {
 
     const history = useHistory();
 
-    /*
-    Reach out to the world and get foods state on initialization
-    */
+
+// Reach out to the world and get foods state on initialization
+
     useEffect(() => {
         getFoods()
     }, [])
@@ -67,23 +91,35 @@ export const FoodForm = () => {
 // handleControlledInputChange is responsible for changing the event
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
-        always create a copy, make changes, and then set state.*/
+        always create a copy, make changes, and then set state.
+        
+        Spread syntax (...) allows an iterable such as an array expression or string to be expanded in 
+        places where zero or more arguments (for function calls) or elements (for array literals) are 
+        expected, or an object expression to be expanded in places where zero or more key-value pairs
+        (for object literals) are expected.
+
+        Spread syntax can be used when all elements from an object or array meeds to be included in a list of some kind
+
+        ... = function passes all the values in the array
+        food =  is the array name
+        */
         const newFood = { ...food }
         // ...food is a copy of const [food, setFoods] = useState({
 
 
         const dateRep = new Date()
-// console.log("value :" , event.target.value, "id :" , event.target.name)
-        /* Food is an object with properties.
-        Set the property to the new value
-        using object bracket notation. */
+console.log("value :" , event.target.value, "id :" , event.target.name)
+/* Food is an object with properties. Set the property to the new value using 
+object bracket notation. */
 
-        // this tells the button to grab the id of the new food that has been created
+// this tells the button to grab the id of the new food that has been created
         if (event.target.id) {
             newFood[event.target.id] = event.target.value
-// if there is no id then grab the name of the new food that was created
-// this will grab the value, which is the "name". The name is as a string and it needs to be 
-// converted to a boolean of true and false.
+/*
+if there is no id then grab the name of the new food that was created
+this will grab the value, which is the "name". The name is as a string and it needs to be 
+converted to a boolean of true and false.
+*/
         }else {
             if (event.target.value === "true") {
                 newFood[event.target.name] = true
@@ -103,6 +139,10 @@ export const FoodForm = () => {
 
         setIsLoading(true);
 
+/* This is how we check for whether the form is being used for editing or creating. 
+If the URL that got us here has an id number in it, we know we want to update an 
+existing record of an review. 
+*/
         if (foodId){
             //PUT - update
             updateFood({
@@ -146,7 +186,7 @@ export const FoodForm = () => {
                 setIsLoading(false)
             })
         } else {
-            // else there is no data
+            // else - there is no data
             setIsLoading(false)
         }
         })
@@ -206,17 +246,18 @@ export const FoodForm = () => {
                     <input type="url" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="https://example.com" pattern="https://.*" value={food.url}/>
                 </div>
             </fieldset>
-            <fieldset>
-                {/* <div className="food__timeStamp">
+            {/* <fieldset>
+                <div className="food__timeStamp">
                     <label htmlFor="timestamp">Timestamp:</label>
                     <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={food.timestamp}/>
-                </div> */}
+                </div>
                 
-            </fieldset>
+            </fieldset> */}
             <button className="btn btn-primary"
                 disabled={isLoading}
 
                 onClick={event => {
+                    // Prevent browser from submitting the form and refreshing the page
                     event.preventDefault()
                     handleClickSaveFood()
                 }}>

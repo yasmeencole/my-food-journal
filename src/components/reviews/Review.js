@@ -6,7 +6,11 @@ import ReactStars from "react-rating-stars-component";
 import "./Review.css"
 
 
-
+// {review} is a prop/parameter
+/*
+props are how we pass state from component to component. Props can be deconstructed with
+{curly brackets} and passed down to the child components 
+*/
 export const Review = ({review}) => {
 
     const ratingChanged = (newRating) => {

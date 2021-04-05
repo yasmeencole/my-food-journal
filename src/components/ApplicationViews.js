@@ -27,6 +27,10 @@ export const ApplicationViews = () => {
     </Route>
 
     {/* http://localhost:8088/foods */}
+    {/* <FoodList>, <FoodSearch />, <FoodForm />, <FoodDetail />
+    components are the children of the <FoodProvider> component. 
+    They need to be wrapped in the the <FoodProvider> component 
+    so that they can be exposed to the data in JSX.*/}
     <MealProvider>
         <FoodProvider>
             <Route exact path="/foods">

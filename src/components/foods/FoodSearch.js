@@ -4,6 +4,7 @@ import { FoodContext } from "./FoodProvider"
 import "./Food"
 
 export const FoodSearch = () => {
+    // useContext() - Used by UI components that need data stored in the context, and exposed by the provider component.
     const { setSearchTerms } = useContext(FoodContext)
 
     return (

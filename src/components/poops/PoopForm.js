@@ -12,13 +12,46 @@ const structureOfDate = {
 }
 
 export const PoopForm = () => {
+
+/*
+useContext() - is a way to pass data through the component tree w/o havin to pass down 
+manually at every level.
+useContext() - lets you subscribe to React context without introducing nesting.
+useContext() - Used by UI components that need data stored in the context, and 
+exposed by the provider component.
+*/
     const { addPoop, getPoopById, updatePoop } = useContext(PoopContext)
     const { getPoops } = useContext(PoopContext)
-    /*
-    With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
+    // console.log(poops)
 
-    Define the intial state of the form inputs with useState()
-    */
+/*useState hook takes the initial value of our state as the only argument, and it
+returns an array of two elements. The first element is our state variable and
+the second element is a function in which we can use the update the value
+of the state variable.
+
+review is the state variable 
+setReview is a function which we can use to update the value of review.
+Every time state is updated, the component will re-render
+*/
+
+/*
+const [review, setReview] = useState({})
+
+this is declaring review as a vairable and setReview as a function that sets the state 
+of the variable and invokes it
+
+/*useState hook takes the initial value of our state as the only argument, and it
+returns an array of two elements. The first element is our state variable and
+the second element is a function in which we can use the update the value
+of the state variable.
+
+review is the state variable 
+setReview is a function which we can use to update the value of food.
+Every time state is updated, the component will re-render
+
+useState to hold and set the array of reviews.
+const reviews  = []
+*/
 
     const [poop, setPoops] = useState({
         id: "",
@@ -40,12 +73,24 @@ useEffect(() => {
 //when field changes, update state. This causes a re-render and updates the view.
 //Controlled component
 const handleControlledInputChange = (event) => {
-    //When changing a state object or array,
-    //always create a copy make changes, and then set state.
+        /* When changing a state object or array,
+        always create a copy, make changes, and then set state.
+        
+        Spread syntax (...) allows an iterable such as an array expression or string to be expanded in 
+        places where zero or more arguments (for function calls) or elements (for array literals) are 
+        expected, or an object expression to be expanded in places where zero or more key-value pairs
+        (for object literals) are expected.
+
+        Spread syntax can be used when all elements from an object or array meeds to be included in a list of some kind
+
+        ... = function passes all the values in the array
+        review =  is the array name
+        */
+    
     const newPoop = { ...poop }
     const dateRep = new Date()
 
-    //animal is an object with properties.
+    //poop is an object with properties.
     //set the property to the new value
     newPoop[event.target.id] = event.target.value
     newPoop.timestamp = `${dateRep.toLocaleDateString('en-US', structureOfDate)}`
@@ -80,7 +125,7 @@ const handleSavePoop = () => {
 }
 
 
-// Get locations. If employeeId is in the URL, getEmployeeById
+// Get poops. If poopId is in the URL, getPoopById
 useEffect(() => {
     getPoops().then(() => {
     if (poopId) {
@@ -114,6 +159,7 @@ return (
         disabled={isLoading}
 
         onClick={event => {
+            // Prevent browser from submitting the form and refreshing the page
         event.preventDefault()
         handleSavePoop()
         }}>

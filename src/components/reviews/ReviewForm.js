@@ -16,19 +16,47 @@ const structureOfDate = {
 export const ReviewForm = () => {
     const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
 
-    const { addReview, getReviewById, updateReview } = useContext(ReviewContext)
-    const { getReviews } = useContext(ReviewContext)
+/*
+useContext() - is a way to pass data through the component tree w/o havin to pass down 
+manually at every level.
+useContext() - lets you subscribe to React context without introducing nesting.
+useContext() - Used by UI components that need data stored in the context, and 
+exposed by the provider component.
+*/
+    const { addReview, getReviewById, updateReview, getReviews } = useContext(ReviewContext)
 
 
     const { foods, getFoods } = useContext(FoodContext)
     console.log(foods)
-    // const { customers, getCustomers } = useContext(CustomerContext)
-    /*
-    With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
 
-    Define the intial state of the form inputs with useState()
-    */
+/*useState hook takes the initial value of our state as the only argument, and it
+returns an array of two elements. The first element is our state variable and
+the second element is a function in which we can use the update the value
+of the state variable.
 
+review is the state variable 
+setReview is a function which we can use to update the value of review.
+Every time state is updated, the component will re-render
+*/
+
+/*
+const [review, setReview] = useState({})
+
+this is declaring review as a vairable and setReview as a function that sets the state 
+of the variable and invokes it
+
+/*useState hook takes the initial value of our state as the only argument, and it
+returns an array of two elements. The first element is our state variable and
+the second element is a function in which we can use the update the value
+of the state variable.
+
+review is the state variable 
+setReview is a function which we can use to update the value of food.
+Every time state is updated, the component will re-render
+
+useState to hold and set the array of reviews.
+const reviews  = []
+*/
     const [review, setReview] = useState({
         id: "",
         userId: parseInt(sessionStorage.getItem("app_user_id")),
@@ -43,22 +71,44 @@ const [isLoading, setIsLoading] = useState(true);
 const { reviewId } = useParams();
 const history = useHistory();
 
+// Reach out to the world and get reviews state on initialization
 useEffect(() => {
     getReviews()
 }, [])
 
-//when field changes, update state. This causes a re-render and updates the view.
+//when field changes, update state. This causes a re-render and updates the review.
 //Controlled component
 const handleControlledInputChange = (event) => {
     console.log(event.target)
-    //When changing a state object or array,
-    //always create a copy make changes, and then set state.
-    const newReview = { ...review }
-    const dateRep = new Date()
+        /* When changing a state object or array,
+        always create a copy, make changes, and then set state.
+        
+        Spread syntax (...) allows an iterable such as an array expression or string to be expanded in 
+        places where zero or more arguments (for function calls) or elements (for array literals) are 
+        expected, or an object expression to be expanded in places where zero or more key-value pairs
+        (for object literals) are expected.
 
-    //animal is an object with properties.
+        Spread syntax can be used when all elements from an object or array meeds to be included in a list of some kind
+
+        ... = function passes all the values in the array
+        review =  is the array name
+        */
+    
+    const newReview = { ...review }
+
+
+    const dateRep = new Date()
+console.log("value :" , event.target.value, "id :" , event.target.name)
+/* Review is an object with properties. Set the property to the new value using 
+object bracket notation. */
+
+
+    //review is an object with properties.
     //set the property to the new value
+
+    // this tells the button to grab the id of the new review that has been created
     newReview[event.target.id] = event.target.value
+
     newReview.timestamp = `${dateRep.toLocaleDateString('en-US', structureOfDate)}`
     //update state
     setReview(newReview)
@@ -72,7 +122,10 @@ const handleSaveReview = () => {
     //disable the button - no extra clicks
     setIsLoading(true);
 
-    // This is how we check for whether the form is being used for editing or creating. If the URL that got us here has an id number in it, we know we want to update an existing record of an animal
+/* This is how we check for whether the form is being used for editing or creating. 
+If the URL that got us here has an id number in it, we know we want to update an 
+existing record of an review. 
+*/
     if (reviewId){
         //PUT - update
         updateReview({
@@ -101,8 +154,9 @@ const handleSaveReview = () => {
     }
 }
 
-// Get locations. If employeeId is in the URL, getEmployeeById
+// Get review. If reviewId is in the URL, getReviewById
 useEffect(() => {
+    // refactor and take out getReviews
     getReviews().then(getFoods).then(() => {
     if (reviewId) {
         getReviewById(reviewId)
@@ -128,8 +182,8 @@ setReview(newReview);
 return (
     <form className="reviewForm">
     <h2 className="reviewForm__title">{reviewId ? "Edit Review" : "Add Review"}</h2>
+{/* this is the star rating */}
 <fieldset>
-
     <ReactStars
     count={5}
     onChange={ratingChanged}
@@ -156,7 +210,8 @@ return (
         <input type="text" id="text" required autoFocus className="form-control"
         placeholder="Review Text"
         onChange={handleControlledInputChange}
-        value={review.text}/>
+        value={review.text}
+        />
         </div>
     </fieldset>
 
