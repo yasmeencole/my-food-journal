@@ -1,10 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,800&family=Roboto&family=Roboto+Slab&display=swap');
+
 .foods {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 .food {
-    flex-basis: 20%;
+    flex-basis: 25%;
     margin: 1em;
+    /* text-align: center; */
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.food__badFoodsTitle {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.food__myFoodsTitle {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.foodSearchText {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.food__newFoodButton {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.foodForm {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.food__DetailsName {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}
+
+.foodImage {
+  height: auto;
+  max-height: 277px;
+  /* width: auto; */
+  max-width: 400px;
+
 }

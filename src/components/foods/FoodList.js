@@ -4,6 +4,8 @@ import "./Food.css"
 // import the context object you created in the provider component so that the Context hook can access the objects it exposes.
 import { FoodContext } from "./FoodProvider"
 import { useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
 
 // get the foods data from the API to display the live data
 
@@ -82,7 +84,7 @@ You can include dependencies in the array [] to cause useEffect to run additiona
 
         <h2 className="food__myFoodsTitle">My Foods</h2>
         {/* when New Food button is clicked users are rerouted to http://localhost:3000/foods/create  */}
-        <button onClick={() => { history.push("/foods/create") }}>New Food</button>
+        <Button className="food__newFoodButton"onClick={() => { history.push("/foods/create") }}>New Food</Button>
 
         <div className="foods">
         {

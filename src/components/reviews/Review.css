@@ -1,10 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,800&family=Roboto&family=Roboto+Slab&display=swap');
+
 .reviews {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    /* flex-flow: column wrap; */
+
 }
 
 .review {
     flex-basis: 40%;
     margin: 1em;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+
+}
+
+.food__reviewsTitle {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;}
+
+.reviewForm {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;}
+
+.reviewSearchText {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}    
+
+.reviewForm {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.review__AddNewReviewButton {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }

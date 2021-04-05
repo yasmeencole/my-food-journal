@@ -6,6 +6,7 @@ import { userStorageKey } from "./components/auth/authSettings"
 import { ApplicationViews } from "./components/ApplicationViews"
 import { NavBar } from "./components/nav/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import Navbar from 'react-bootstrap/Navbar'
 
 
 export const App = () => (

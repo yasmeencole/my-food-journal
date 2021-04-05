@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom"
 import "./Food.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // food card that appears for route http://localhost:3000/foods contains: image, food name 
 // and details button
@@ -14,11 +15,16 @@ props are how we pass state from component to component. Props can be deconstruc
 */
 export const Food = ({food}) => {
     return (
-    <Card className="food" style={{ width: '18rem' }}>
-    <Card.Img variant="top" src={food.url} />
+    <Card className="food" style={{ maxWidth: '25rem' }}>
+    <Card.Img className="foodImage" variant="top" src={food.url}>
+        
+    </Card.Img>
     <Card.Body>
-        <Card.Title>{food.name}</Card.Title>
-        {/* <Card.Text>{food.isGood}</Card.Text> */}
+        <Card.Title>
+        <h3>
+            {food.name}
+        </h3> 
+        </Card.Title>
 
         {/* <Card.Text>{food.description}</Card.Text> */}
         <Link to={`/foods/detail/${food.id}`}>

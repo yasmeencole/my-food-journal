@@ -149,12 +149,12 @@ return (
             <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Text" value={poop.note}/>
         </div>
     </fieldset>
-    <fieldset>
+    {/* <fieldset>
         <div className="poop__timeStamp">
             <label htmlFor="timestamp">Timestamp:</label>
             <input type="datetime" id="timestamp" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Timestamp" value={poop.timestamp}/>
         </div>     
-    </fieldset>
+    </fieldset> */}
     <button className="btn btn-primary"
         disabled={isLoading}
 

@@ -28,7 +28,7 @@ export const BadFood = () =>{
 return (
 <>
 <section>
-    <h2 className="food__badFoodsTitle">Bad Foods</h2>
+    <h2 className="food__badFoodsTitle">My Bad Foods</h2>
 
     <div className="foods">
     {

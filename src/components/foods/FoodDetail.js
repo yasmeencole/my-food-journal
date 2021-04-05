@@ -53,31 +53,44 @@ navigate.
         // returns a representation of food details
 
         <section className="food">
-        <h3 className="food__name">{food.name}</h3>
+        {/* <h3 className="food__name">{food.name}</h3> */}
         {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
 
-        <div className="food__description">About this meal: {food.description}</div>
+<Card className="food" style={{ width: '20rem' }}>
+    <Card.Img variant="top" src={food.url} />
+    <Card.Body>
+        <Card.Title className="food__DetailsName">
+            <h2>
+            {food.name}
+            </h2>
+        </Card.Title>
 
-        <div className="food__timestamp">Timestamp: {food.timestamp}</div>
-        <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <Card.Text>
+        About this meal:
+        <br />
+        <br />
+
+        {food.description}
+        <br />
+        <br />
+
+        {food.timestamp}
+        </Card.Text>
+
+    </Card.Body>
+    {/* </Card> */}
+
         {parseInt(sessionStorage.getItem("app_user_id")) === food.userId ?
-
         <div>
-        <button onClick={handleRelease}>Release food</button>
+        <Button onClick={handleRelease}>Delete</Button>
+
+        {/* <br /> */}
 
         {/* this is the edit button, when clicked it sends a put request that updates the food */}
-        <button onClick={() => { history.push(`/foods/edit/${food.id}`) }}>Edit</button>
+        <Button onClick={() => { history.push(`/foods/edit/${food.id}`) }}>Edit</Button>
         </div>
                 : ""}
-
+    </Card>
         </section>
     )
 }

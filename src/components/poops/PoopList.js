@@ -1,9 +1,11 @@
 import React, { useEffect, useContext, useState } from "react"
 import { Poop } from "./Poop"
-// import "./Poop.css"
+import "./Poop.css"
 // import the context object you created in the provider component so that the Context hook can access the objects it exposes.
 import { PoopContext } from "./PoopProvider"
 import { useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
 
 
 export const PoopList = () => {
@@ -75,9 +77,9 @@ You can include dependencies in the array [] to cause useEffect to run additiona
 
     return (
     <>
-        <h1>Bowel Movements</h1>
+        <h2 className="bowelMovements__Title">My Bowel Movements</h2>
 {/* when New Poop button is clicked users are rerouted to http://localhost:3000/foods/create  */}
-        <button onClick={() => { history.push("/poops/create") }}>Add Poop</button>
+<Button className="addPoopButton" onClick={() => { history.push("/poops/create") }}>Add Poop</Button>
 
         <div className="poops">
         {

@@ -1,9 +1,10 @@
 import React, { useEffect, useContext, useState } from "react"
 import { Review } from "./Review"
-// import "./Review.css"
+import "./Review.css"
 // import the context object you created in the provider component so that the Context hook can access the objects it exposes.
 import { ReviewContext } from "./ReviewProvider"
 import { useHistory } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -67,8 +68,7 @@ These effects are only executed after the component has rendered, therefore not 
         <h2 className="food__reviewsTitle">My Reviews</h2>
 {/* when New Review button is clicked users are rerouted to http://localhost:3000/reviews/create  */}
 
-        <button onClick={() => { history.push("/reviews/create") }}>New Review</button>
-
+<Button className="review__AddNewReviewButton" onClick={() => { history.push("/reviews/create") }}>New Review</Button>
         <div className="reviews">
         {
         /* .map() array method to iterate the array of reviews and generate HTML for 

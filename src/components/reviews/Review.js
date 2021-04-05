@@ -17,7 +17,7 @@ export const Review = ({review}) => {
         // console.log(newRating);
     };
     return (
-    <Card className="review__foodName" style={{ width: '18rem' }}>
+    <Card className="review__foodName" style={{ width: '25rem' }}>
     <Card.Body>
         <Card.Title>{review.food.name}</Card.Title>
     <ReactStars value={review.rating}
@@ -26,7 +26,10 @@ export const Review = ({review}) => {
     size={24}
     activeColor="#ffd700"
 /> 
+    <br />
+
         <Card.Text>{review.text}</Card.Text>
+    <br />    
         <Link to={`/reviews/detail/${review.id}`}>
             <Button>
                 Details
@@ -34,5 +37,6 @@ export const Review = ({review}) => {
         </Link>
     </Card.Body>
     </Card>
+    
 )}
 

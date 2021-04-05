@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { MealContext } from "../meals/MealProvider"
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
+import Form from 'react-bootstrap/Form'
 
 
 const structureOfDate = {
@@ -193,7 +194,7 @@ existing record of an review.
     }, [])
 
         return (
-        <form className="foodForm">
+        <Form className="foodForm">
             <h2 className="foodForm__title">{foodId ? "Edit Food" : "Add New Food"}</h2>
                         {/* dropdown to select a Type of Meal */}
                         <fieldset>
@@ -263,6 +264,6 @@ existing record of an review.
                 }}>
                 {foodId ? "Save Food" : "Add Food"}
             </button>
-        </form>
+        </Form>
     )
 }

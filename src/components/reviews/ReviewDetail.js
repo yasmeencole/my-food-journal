@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ReviewContext } from "./ReviewProvider"
+import "./Review.css"
 import { useParams, useHistory } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
+import Card from "react-bootstrap/Card";
+// import ReactStars from "react-rating-stars-component";
 
 
 export const ReviewDetail = () => {
@@ -41,25 +45,43 @@ navigate.
             history.push("/reviews")
         })
     }
-
+    // const ratingChanged = (newRating) => {
+    //     // console.log(newRating);
+    // };
     return (
 // returns a representation of review details
 
-        <section className="review">
-        <h3 className="review__text">{review.food?.name}</h3>
+<Card className="food" style={{ width: '30rem' }}>
+<Card.Body>
+<Card.Title><h2 className="review__text">{review.food?.name}</h2></Card.Title>
+{/* <ReactStars value={review.rating}
+    count={5}
+    onChange={ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+/>  */}
 
         {/* <div className="food__url" src={food.url}>{food.url}</div> */}
-        <div className="review__rating">Rating: {review.rating}</div>
+        {/* <ReactStars>
+        </ReactStars> */}
+        {/* <div className="review__rating">Rating: {review.rating}</div> */}
+        <br />
 
-        <div className="review__text">Review: {review.text}</div>
+        <div className="review__text">{review.text}</div>
+        <br />
 
-        <div className="article__timestamp">Timestamp: {review.timestamp}</div>
+        <div className="article__timestamp">{review.timestamp}</div>
+</Card.Body>
+{parseInt(sessionStorage.getItem("app_user_id")) === review.userId ?
+
         <div>
-        <button onClick={handleRelease}>Release Review</button>
+        <Button onClick={handleRelease}>Delete</Button>
 {/* this is the edit button, when clicked it sends a put request that updates the review */}
 
-        <button onClick={() => { history.push(`/reviews/edit/${review.id}`) }}>Edit</button>
+        <Button onClick={() => { history.push(`/reviews/edit/${review.id}`) }}>Edit</Button>
         </div>
-</section>
+            : ""}
+
+</Card>
     )
 }

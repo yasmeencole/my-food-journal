@@ -10,9 +10,9 @@ export const ReviewSearch = () => {
 
     return (
         <>
-        Review Search:
+        {/* Review Search: */}
         <input type="text"
-            className="input--wide"
+            className="reviewSearchText"
             onKeyUp={(event) => setSearchTerms(event.target.value)}
             placeholder="Search for a review... " />
         </>
