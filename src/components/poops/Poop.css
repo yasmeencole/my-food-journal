@@ -16,11 +16,17 @@
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+    /* border: 1px solid;
+    padding: 10px; */
+    box-shadow: 5px 10px 8px #888888;
 }
 
 .poopCard {
     margin-left: 27em;
     margin-top: 2em;
+    box-shadow: 5px 10px 8px #888888;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 .bowelMovements__Title {

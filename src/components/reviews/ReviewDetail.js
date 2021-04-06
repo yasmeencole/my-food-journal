@@ -53,7 +53,7 @@ navigate.
 
 <Card className="reviewCard" style={{ width: '30rem' }}>
 <Card.Body className="card-body">
-<Card.Title><h2 className="review__text">{review.food?.name}</h2></Card.Title>
+<Card.Header><h2 className="review__text">{review.food?.name}</h2></Card.Header>
 {/* <ReactStars value={review.rating}
     count={5}
     onChange={ratingChanged}

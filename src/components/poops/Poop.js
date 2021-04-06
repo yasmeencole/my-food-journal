@@ -11,7 +11,7 @@ export const Poop = ({poop}) => {
     return (
     <Card className="poop" style={{ width: '18rem' }}>
     <Card.Body>
-        <Card.Text>{poop.timestamp}</Card.Text>
+        <Card.Header>{poop.timestamp}</Card.Header>
 <br />
         <Card.Title>{poop.note}</Card.Title>
         <br />

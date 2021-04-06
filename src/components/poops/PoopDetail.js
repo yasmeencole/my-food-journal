@@ -61,17 +61,17 @@ navigate.
 //         : ""}
 // </section>
 
-<section className="poop">
-{/* <h3 className="food__name">{food.name}</h3> */}
-{/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
+// {/* <section className="poop"> */}
+// {/* <h3 className="food__name">{food.name}</h3> */}
+// {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
 
 <Card className="poopCard" style={{ width: '30rem' }}>
 {/* <Card.Img variant="top" src={food.url} /> */}
 <Card.Body>
-{/* <Card.Title>{food.name}</Card.Title> */}
+<Card.Header>Bowel Movement Details:</Card.Header>
 
 <Card.Text>
-Note:
+{/* Bowel Movement Details: */}
 <br />
 <br />
 
@@ -96,6 +96,6 @@ Note:
 </div>
         : ""}
 </Card>
-</section>
+// </section>
     )
 }

@@ -16,11 +16,18 @@
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+    /* border: 1px solid; */
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
 }
 
 .foodCard {
     margin-left: 35em;
     margin-top: 2em;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 .food__badFoodsTitle {
