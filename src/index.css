@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.footer {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  position: absolute;
+  margin-top: 27em;
+  margin-bottom: 0;
+}
+
+/* .footer__container {
+  /* Footer height */
+  /* padding-bottom: 2.5rem;
+} */ 

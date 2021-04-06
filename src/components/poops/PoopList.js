@@ -79,7 +79,7 @@ You can include dependencies in the array [] to cause useEffect to run additiona
     <>
         <h2 className="bowelMovements__Title">My Bowel Movements</h2>
 {/* when New Poop button is clicked users are rerouted to http://localhost:3000/foods/create  */}
-<Button className="addPoopButton" onClick={() => { history.push("/poops/create") }}>Add Poop</Button>
+<Button className="addPoopButton" onClick={() => { history.push("/poops/create") }}>New Poop</Button>
 
         <div className="poops">
         {

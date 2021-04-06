@@ -19,7 +19,7 @@ export const Review = ({review}) => {
     return (
     <Card className="review" style={{ maxWidth: '25rem'}}>
     <Card.Body>
-        <Card.Title>{review.food.name}</Card.Title>
+        <Card.Header>{review.food.name}</Card.Header>
     <ReactStars className="reviewStars" value={review.rating}
     count={5}
     onChange={ratingChanged}
