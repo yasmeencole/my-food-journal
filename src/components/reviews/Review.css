@@ -38,7 +38,9 @@
 
 .reviewSearchText {
     font-family: 'Roboto', sans-serif;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Slab', serif;    
+    margin-left: 2em;
+    margin-top: 1em;
 }    
 
 .reviewForm {
@@ -62,6 +64,12 @@
 
 }
 
+.review__AddNewReviewButton {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    margin-left: 79em;
+    margin-bottom: 1em;
+}
 /* .reviewStars {
     
 } */

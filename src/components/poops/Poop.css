@@ -49,6 +49,8 @@
 .addPoopButton {
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+    margin-left: 80em;
+    margin-bottom: 1em;
 }
 
 .poopEditButton {

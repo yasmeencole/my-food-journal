@@ -15,10 +15,10 @@ export const NavBar = (props) => {
     <Navbar.Brand href="/">My Food Journal</Navbar.Brand>
     <Nav className="mr-auto">
       {/* <Nav.Link href="/home">Home</Nav.Link> */}
-      <Nav.Link href="/foods">Foods</Nav.Link>
-      <Nav.Link href="/badFoods">Bad Foods</Nav.Link>
-      <Nav.Link href="/reviews">Reviews</Nav.Link>
-      <Nav.Link href="/poops">Poops</Nav.Link>
+      <Nav.Link className="nav__links" href="/foods">Foods</Nav.Link>
+      <Nav.Link className="nav__links" href="/badFoods">Bad Foods</Nav.Link>
+      <Nav.Link className="nav__links" href="/reviews">Reviews</Nav.Link>
+      <Nav.Link className="nav__links" href="/poops">Poops</Nav.Link>
 
 
     </Nav>

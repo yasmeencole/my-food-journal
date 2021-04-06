@@ -45,11 +45,15 @@
 .foodSearchText {
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+    margin-left: 2em;
+    margin-top: 1em;
 }
 
 .food__newFoodButton {
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+    margin-left: 78em;
+    margin-bottom: 1em;
 }
 
 .foodForm {
