@@ -12,8 +12,9 @@ export const Poop = ({poop}) => {
     <Card className="poop" style={{ width: '18rem' }}>
     <Card.Body>
         <Card.Text>{poop.timestamp}</Card.Text>
-
+<br />
         <Card.Title>{poop.note}</Card.Title>
+        <br />
         <Link to={`/poops/detail/${poop.id}`}>
             <Button>
                 +

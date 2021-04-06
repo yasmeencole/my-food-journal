@@ -18,6 +18,11 @@
     font-family: 'Roboto Slab', serif;
 }
 
+.foodCard {
+    margin-left: 35em;
+    margin-top: 2em;
+}
+
 .food__badFoodsTitle {
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -51,10 +56,26 @@
     font-weight: bold;
 }
 
-.foodImage {
-  height: auto;
-  max-height: 277px;
-  /* width: auto; */
-  max-width: 400px;
+.card-img {
+    height: auto;
+    max-height: 277px;
+    /* width: auto; */
+    max-width: 400px;
 
 }
+
+.foodDeleteButton {
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+.foodEditButton {
+    margin-bottom: 1em;
+
+}
+
+/* .foodDetails {
+    justify-content: center;
+    align-items: center;
+} */

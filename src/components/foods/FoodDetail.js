@@ -52,11 +52,11 @@ navigate.
         
         // returns a representation of food details
 
-        <section className="food">
-        {/* <h3 className="food__name">{food.name}</h3> */}
-        {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
+        // <section className="foodDetails">
+        // {/* <h3 className="food__name">{food.name}</h3> */}
+        // {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
 
-<Card className="food" style={{ width: '20rem' }}>
+<Card className="foodCard" style={{ width: '20rem' }}>
     <Card.Img variant="top" src={food.url} />
     <Card.Body>
         <Card.Title className="food__DetailsName">
@@ -82,15 +82,15 @@ navigate.
 
         {parseInt(sessionStorage.getItem("app_user_id")) === food.userId ?
         <div>
-        <Button onClick={handleRelease}>Delete</Button>
+        <Button className="foodDeleteButton" onClick={handleRelease}>Delete</Button>
 
         {/* <br /> */}
 
         {/* this is the edit button, when clicked it sends a put request that updates the food */}
-        <Button onClick={() => { history.push(`/foods/edit/${food.id}`) }}>Edit</Button>
+        <Button className="foodEditButton" onClick={() => { history.push(`/foods/edit/${food.id}`) }}>Edit</Button>
         </div>
                 : ""}
     </Card>
-        </section>
+        // </section>
     )
 }

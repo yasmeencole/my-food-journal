@@ -51,8 +51,8 @@ navigate.
     return (
 // returns a representation of review details
 
-<Card className="food" style={{ width: '30rem' }}>
-<Card.Body>
+<Card className="reviewCard" style={{ width: '30rem' }}>
+<Card.Body className="card-body">
 <Card.Title><h2 className="review__text">{review.food?.name}</h2></Card.Title>
 {/* <ReactStars value={review.rating}
     count={5}
@@ -75,10 +75,10 @@ navigate.
 {parseInt(sessionStorage.getItem("app_user_id")) === review.userId ?
 
         <div>
-        <Button onClick={handleRelease}>Delete</Button>
+        <Button className="reviewDeleteButton" onClick={handleRelease}>Delete</Button>
 {/* this is the edit button, when clicked it sends a put request that updates the review */}
 
-        <Button onClick={() => { history.push(`/reviews/edit/${review.id}`) }}>Edit</Button>
+        <Button className="reviewEditButton" onClick={() => { history.push(`/reviews/edit/${review.id}`) }}>Edit</Button>
         </div>
             : ""}
 

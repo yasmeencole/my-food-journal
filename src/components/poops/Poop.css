@@ -17,6 +17,12 @@
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
 }
+
+.poopCard {
+    margin-left: 27em;
+    margin-top: 2em;
+}
+
 .bowelMovements__Title {
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -37,4 +43,9 @@
 .addPoopButton {
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Slab', serif;
+}
+
+.poopEditButton {
+    margin-left: 1em;
+    margin-bottom: 1em;
 }

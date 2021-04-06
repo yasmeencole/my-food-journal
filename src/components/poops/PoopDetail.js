@@ -65,7 +65,7 @@ navigate.
 {/* <h3 className="food__name">{food.name}</h3> */}
 {/* <div className="food__rating">Rating: {food.review?.rating}</div> */}
 
-<Card className="poopCardDetails" style={{ width: '30rem' }}>
+<Card className="poopCard" style={{ width: '30rem' }}>
 {/* <Card.Img variant="top" src={food.url} /> */}
 <Card.Body>
 {/* <Card.Title>{food.name}</Card.Title> */}
@@ -92,7 +92,7 @@ Note:
 {/* <br /> */}
 
 {/* this is the edit button, when clicked it sends a put request that updates the food */}
-<Button onClick={() => { history.push(`/poops/edit/${poop.id}`) }}>Edit</Button>
+<Button className="poopEditButton" onClick={() => { history.push(`/poops/edit/${poop.id}`) }}>Edit</Button>
 </div>
         : ""}
 </Card>

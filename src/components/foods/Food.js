@@ -16,7 +16,7 @@ props are how we pass state from component to component. Props can be deconstruc
 export const Food = ({food}) => {
     return (
     <Card className="food" style={{ maxWidth: '25rem' }}>
-    <Card.Img className="foodImage" variant="top" src={food.url}>
+    <Card.Img className="card-img" variant="top" src={food.url}>
         
     </Card.Img>
     <Card.Body>

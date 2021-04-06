@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { ReviewContext } from "./ReviewProvider"
-// import "./Review.css"
+import "./Review.css"
 import "./Review"
 
 export const ReviewSearch = () => {
