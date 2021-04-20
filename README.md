@@ -1,12 +1,18 @@
 # Introduction
-Nashville Software School Cohort 46 Capstone - My Food Journal
+Nashville Software School Cohort 46 Capstone - My Food Journal By Yasmeen Cole
 
 ## The Purpose of My Food Journal
 The main purpose of My Food Journal application is to help users with gastrointestinal issues document foods that they have eaten for each day.
 
-This application will allow logged in users to: document their daily meals, determine which foods trigger gastrointestinal issues, rate each of their meals and notate how each meal physically made the user feel after consuming each food item, and notate their daily bowel movements.
+Oftentimes it can difficult to determine what foods are causing discomfort or flare ups. My Food Journal will make it easier for people who have gastrointestinal issues to document the foods they consume daily and eliminate any foods the user has determined are not good for them.
 
-This application will help users determine which foods triggered gastrointestinal issues so that the user can avoid and/or eliminate those foods from the users diet.
+This application will allow a logged in user to: 
+* document their daily meals
+* determine which foods trigger gastrointestinal issues
+* rate each of their meals
+* notate how each meal physically made the user feel after consuming each food item
+* notate their daily bowel movements
+
 
 ### Entity Relationship Diagram 
 
@@ -32,9 +38,32 @@ https://www.figma.com/file/DaxVj0U7sK7rcXkXZIUVsG/Capstone-My-Food-Journal?node-
 <img width="832" alt="Food Details Mockup" src="https://user-images.githubusercontent.com/72658735/115468311-85949280-a1f8-11eb-8998-acd9fd1a2dad.png">
 
 ### Tech Stack
-1. React JS
-2. React Bootstrap
-3. JSON Server
-4. CSS
-5. HTML
+* React JS
+* React Bootstrap
+* JSON Server
+* CSS
+* HTML
 
+### Setting Up My Food Journal
+To run My Food Journal application:
+
+```
+git clone git@github.com:yasmeencole/my-food-journal.git
+npm install
+npm start
+```
+
+For my Food Journal API:
+
+```
+git clone git@github.com:yasmeencole/food-journal-api.git
+```
+
+Link: https://github.com/yasmeencole/food-journal-api
+
+To start the JSON server:
+
+```
+json-server -p 8088 -w database.json
+```
+**Please be advise that no data is available at log in, as all data is user specific.**
