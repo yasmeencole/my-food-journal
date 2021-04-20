@@ -4,9 +4,9 @@ Nashville Software School Cohort 46 Capstone - My Food Journal
 ## The Purpose of My Food Journal
 The main purpose of My Food Journal application is to help users with gastrointestinal issues document foods that they have eaten for each day.
 
-This application will allow logged in users to: document their daily meals, leave a rating on their meals and notate how their meals physically made them feel after eating it. 
+This application will allow logged in users to: document their daily meals, determine which foods trigger gastrointestinal issues, rate each of their meals and notate how each meal physically made the user feel after consuming each food item, and notate their daily bowel movements.
 
-This application will help users determine which foods made the user feel bad so the user can determine which foods to avoid. This application will also allow the user to document their bowel movements.
+This application will help users determine which foods triggered gastrointestinal issues so that the user can avoid and/or eliminate those foods from the users diet.
 
 ### Entity Relationship Diagram 
 
@@ -30,3 +30,11 @@ https://www.figma.com/file/DaxVj0U7sK7rcXkXZIUVsG/Capstone-My-Food-Journal?node-
 
 
 <img width="832" alt="Food Details Mockup" src="https://user-images.githubusercontent.com/72658735/115468311-85949280-a1f8-11eb-8998-acd9fd1a2dad.png">
+
+### Tech Stack
+1. React JS
+2. React Bootstrap
+3. JSON Server
+4. CSS
+5. HTML
+
