@@ -56,7 +56,7 @@ npm install
 npm start
 ```
 
-For my Food Journal API:
+For My Food Journal API:
 
 ```
 git clone git@github.com:yasmeencole/food-journal-api.git
