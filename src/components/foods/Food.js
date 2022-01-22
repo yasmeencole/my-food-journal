@@ -15,25 +15,36 @@ props are how we pass state from component to component. Props can be deconstruc
 */
 export const Food = ({food}) => {
     return (
-    <Card className="food" style={{ maxWidth: '25rem' }}>
-    <Card.Img className="card-img" variant="top" src={food.url}>
-        
-    </Card.Img>
-    <Card.Body>
-        <Card.Title>
-        <h3>
-            {food.name}
-        </h3> 
-        </Card.Title>
+    <Link to={`/foods/detail/${food.id}`}>
 
-        {/* <Card.Text>{food.description}</Card.Text> */}
-        <Link to={`/foods/detail/${food.id}`}>
-            <Button>
-                Details
-            </Button>
-        </Link>
-    </Card.Body>
-    </Card>
+        <Card className="food" style={{ maxWidth: '100%' }}>
+        <Card.Img className="card-img" variant="top" src={food.url}>
+            
+        </Card.Img>
+        {/* <Card.Body> */}
+            {/* <Card.Title>
+            <h3>
+                {food.name}
+            </h3> 
+            </Card.Title> */}
+
+            {/* <Card.Text>{food.description}</Card.Text> */}
+            {/* <Link to={`/foods/detail/${food.id}`}>
+                <Button>
+                    Details
+                </Button>
+            </Link> */}
+        {/* </Card.Body> */}
+
+        <Card.ImgOverlay>
+        {/* <Card.Title>{food.name}</Card.Title> */}
+            <Card.Text className="myFoodsTextTitle">
+            {food.name}
+            </Card.Text>
+        </Card.ImgOverlay>
+
+        </Card>
+    </Link>
 )
 }
 
